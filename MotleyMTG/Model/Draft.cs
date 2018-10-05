@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MotleyMTG
 {
-	class Draft
+	public class Draft
 	{
 		public List<Player> Players { get; set; }
 		public int CurrentRound { get; set; }
@@ -39,18 +39,44 @@ namespace MotleyMTG
 			throw new NotImplementedException();
 		}
 
-		private List<Match> AssignPairingsBySwiss(List<Player> playersCopy)
+		private List<Match> AssignPairingsBySwiss(List<Player> players)
 		{
-			List<List<Match>> allPossiblePairingLists = GetAllPossiblePairings(playersCopy);
+            //Array.ConvertAll(array, item => (NewType)item);
+            List<List<Tuple<Player,Player>>> allPossPairsAsTuples = GetAllPossiblePairs(players);
+            List<List<Match>> allPossiblePairingLists = new List<List<Match>>();
 			return BestPairingList(allPossiblePairingLists);
 		}
 
-		private static List<List<Tuple<T,T>>> GetAllPossiblePairs<T>(List<T> items)
+		public static List<List<Tuple<T,T>>> GetAllPossiblePairs<T>(List<T> items)
 		{
-			
+            List<List<Tuple<T, T>>> allPairingsLists = new List<List<Tuple<T, T>>>();
+            GetAllPossiblePairsInternal(items, new List<Tuple<T, T>>(), ref allPairingsLists);
+            return allPairingsLists;
 		}
 
-		private List<Match> BestPairingList(List<List<Match>> allPossiblePairingLists)
+        private static void GetAllPossiblePairsInternal<T>(List<T> items, List<Tuple<T,T>> currentPairingList, ref List<List<Tuple<T, T>>> allPairingsLists)
+        {
+            if (items.Count == 0) allPairingsLists.Add(currentPairingList);
+            else
+            {
+                var itemsCopy = new List<T>(items);
+                T firstItem = itemsCopy[0];
+                itemsCopy.RemoveAt(0);
+                for (int i=0; i < itemsCopy.Count; i++)
+                {
+                    var itemsSecondCopy = new List<T> (itemsCopy);
+                    T secondItem = itemsSecondCopy[i];
+                    itemsSecondCopy.RemoveAt(i);
+                    List<Tuple<T, T>> newPairingList = new List<Tuple<T, T>>(currentPairingList);
+                    newPairingList.Add(new Tuple<T, T>(firstItem, secondItem));
+                    GetAllPossiblePairsInternal(itemsSecondCopy, newPairingList, ref allPairingsLists);
+                }
+            }
+
+        }
+
+
+        private List<Match> BestPairingList(List<List<Match>> allPossiblePairingLists)
 		{
 			throw new NotImplementedException();
 		}
