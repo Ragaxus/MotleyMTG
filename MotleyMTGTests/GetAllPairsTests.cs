@@ -14,7 +14,7 @@ namespace MotleyMTGTests
         public void FourObjectsShouldHaveThreeWaysToPair()
         {
             List<int> objs = new List<int> { 1, 2, 3, 4 };
-            List<List<Tuple<int, int>>> allPairs = MotleyMTG.Draft.GetAllPossiblePairs(objs);
+            List<List<Tuple<int, int>>> allPairs = MotleyMTG.Model.SwissPairingStrategy.GetAllPossiblePairs(objs);
             Assert.AreEqual(3, allPairs.Count);
         }
 
@@ -22,7 +22,7 @@ namespace MotleyMTGTests
         public void EightObjectsShouldHave105WaysToPair()
         {
             List<int> objs = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8 };
-            List<List<Tuple<int, int>>> allPairs = MotleyMTG.Draft.GetAllPossiblePairs(objs);
+            List<List<Tuple<int, int>>> allPairs = MotleyMTG.Model.SwissPairingStrategy.GetAllPossiblePairs(objs);
             Assert.AreEqual(105, allPairs.Count);
         }
 
@@ -30,7 +30,7 @@ namespace MotleyMTGTests
         public void EightObjectsShouldHaveFourPairs()
         {
             List<int> objs = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8 };
-            List<List<Tuple<int, int>>> allPairs = MotleyMTG.Draft.GetAllPossiblePairs(objs);
+            List<List<Tuple<int, int>>> allPairs = MotleyMTG.Model.SwissPairingStrategy.GetAllPossiblePairs(objs);
             Assert.IsTrue(Array.TrueForAll<List<Tuple<int,int>>>(allPairs.ToArray(), pairList => pairList.Count == 4));
         }
 
@@ -46,7 +46,7 @@ namespace MotleyMTGTests
         public void PerformanceForTwelveItemsIsntBad()
         {
             List<int> objs = new List<int>{ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 };
-            TimeSpan howLongItTook = Time(() => MotleyMTG.Draft.GetAllPossiblePairs(objs));
+            TimeSpan howLongItTook = Time(() => MotleyMTG.Model.SwissPairingStrategy.GetAllPossiblePairs(objs));
             Trace.WriteLine(howLongItTook.TotalSeconds + " seconds to handle a dozen items.");
             Assert.IsTrue(howLongItTook <= TimeSpan.FromSeconds(1));
         }

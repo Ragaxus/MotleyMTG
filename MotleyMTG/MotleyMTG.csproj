@@ -47,13 +47,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Draft.cs" />
+    <Compile Include="Model\Match.cs" />
+    <Compile Include="Model\MatchRecord.cs" />
+    <Compile Include="Model\PairingList.cs" />
+    <Compile Include="Model\IPairingStrategy.cs" />
+    <Compile Include="Model\SeatingPairingStrategy.cs" />
+    <Compile Include="Model\SwissPairingStrategy.cs" />
     <Compile Include="UI\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\Match.cs" />
     <Compile Include="Model\Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
