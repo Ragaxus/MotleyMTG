@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace MotleyMTGTests
+namespace MotleyMTG.Model.Tests
 {
     [TestClass]
     public class GetAllPairsTests

@@ -15,5 +15,20 @@ namespace MotleyMTG.Model
 		{
 			return match._match;
 		}
+
+		internal bool HaveAlreadyPlayed()
+		{
+			return _match.Item1.GetAllPriorOpponents().Contains(_match.Item2);
+		}
+
+		internal Player Player1
+		{
+			get { return _match.Item1; }
+		}
+
+		internal Player Player2
+		{
+			get { return _match.Item2; }
+		}
 	}
 }

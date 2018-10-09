@@ -50,12 +50,17 @@ namespace MotleyMTG.Model
 			return allPossiblePairingLists.OrderBy(pairingList => CalculatePairingCost(pairingList)).First();
 		}
 
-		private int CalculatePairingCost(PairingList pairingList)
+		public int CalculatePairingCost(PairingList pairingList)
 		{
 			int cost = 0;
 			foreach (Match pair in (List<Match>)pairingList)
 			{
-
+				if (pair.HaveAlreadyPlayed()) cost += 1000000;
+				else
+				{
+					int diff = pair.Player1.MatchPoints() - pair.Player2.MatchPoints();
+					cost += diff * diff;
+				};
 			}
 			return cost;
 		}
