@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MotleyMTG
 {
-	public class Draft
+	class Draft
 	{
 		public List<Player> Players { get; set; }
 		public int CurrentRound { get; set; }
@@ -39,66 +39,20 @@ namespace MotleyMTG
 			throw new NotImplementedException();
 		}
 
-		private List<Match> AssignPairingsBySwiss(List<Player> players)
+		private List<Match> AssignPairingsBySwiss(List<Player> playersCopy)
 		{
-            //Array.ConvertAll(array, item => (NewType)item);
-            List<List<Tuple<Player,Player>>> allPossPairsAsTuples = GetAllPossiblePairs(players);
-            List<List<Match>> allPossiblePairingLists = new List<List<Match>>();
+			List<List<Match>> allPossiblePairingLists = GetAllPossiblePairings(playersCopy);
 			return BestPairingList(allPossiblePairingLists);
 		}
 
-		public static List<List<Tuple<T,T>>> GetAllPossiblePairs<T>(List<T> items)
+		private static List<List<Tuple<T,T>>> GetAllPossiblePairs<T>(List<T> items)
 		{
-            List<List<Tuple<T, T>>> allPairingsLists = new List<List<Tuple<T, T>>>();
-            GetAllPossiblePairsInternal(items, new List<Tuple<T, T>>(), ref allPairingsLists);
-            return allPairingsLists;
+			
 		}
 
-        private static void GetAllPossiblePairsInternal<T>(List<T> items, List<Tuple<T,T>> currentPairingList, ref List<List<Tuple<T, T>>> allPairingsLists)
-        {
-            if (items.Count == 0) allPairingsLists.Add(currentPairingList);
-            else
-            {
-                var itemsCopy = new List<T>(items);
-                T firstItem = itemsCopy[0];
-                itemsCopy.RemoveAt(0);
-                for (int i=0; i < itemsCopy.Count; i++)
-                {
-                    var itemsSecondCopy = new List<T> (itemsCopy);
-                    T secondItem = itemsSecondCopy[i];
-                    itemsSecondCopy.RemoveAt(i);
-                    List<Tuple<T, T>> newPairingList = new List<Tuple<T, T>>(currentPairingList);
-                    newPairingList.Add(new Tuple<T, T>(firstItem, secondItem));
-                    GetAllPossiblePairsInternal(itemsSecondCopy, newPairingList, ref allPairingsLists);
-                }
-            }
-
-        }
-
-
-        private List<Match> BestPairingList(List<List<Match>> allPossiblePairingLists)
+		private List<Match> BestPairingList(List<List<Match>> allPossiblePairingLists)
 		{
-            foreach (List<Match> pairingModule in allPossiblePairingLists)
-            {
-                try
-                {
-                    int thisPairingCost = CalculatePairingModuleCost(pairingModule);
-                }
-                catch (Exception)
-                {
-
-                    throw;
-                }
-
-            }
+			throw new NotImplementedException();
 		}
-
-        private int CalculatePairingModuleCost(List<Match> pairingModule)
-        {
-            int totalCost = 0
-                ;
-            return totalCost; 
-        }
-
-    }
+	}
 }
