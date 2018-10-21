@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MotleyMTG", "MotleyMTG\MotleyMTG.csproj", "{6C1BED17-DF20-4EF5-BD83-25FE26930024}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MotleyMTGTests", "MotleyMTGTests\MotleyMTGTests.csproj", "{887EA724-3DD2-4D6E-8AC6-B6CD5D874722}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,8 +17,15 @@ Global
 		{6C1BED17-DF20-4EF5-BD83-25FE26930024}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6C1BED17-DF20-4EF5-BD83-25FE26930024}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6C1BED17-DF20-4EF5-BD83-25FE26930024}.Release|Any CPU.Build.0 = Release|Any CPU
+		{887EA724-3DD2-4D6E-8AC6-B6CD5D874722}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{887EA724-3DD2-4D6E-8AC6-B6CD5D874722}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{887EA724-3DD2-4D6E-8AC6-B6CD5D874722}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{887EA724-3DD2-4D6E-8AC6-B6CD5D874722}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E583AC90-6DCF-48BB-B23F-111BCFED8C9D}
 	EndGlobalSection
 EndGlobal
