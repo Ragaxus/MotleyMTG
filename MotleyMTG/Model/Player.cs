@@ -5,7 +5,14 @@ namespace MotleyMTG
 {
 	public class Player
 	{
-		public int Seat { get; set; }
+        public string Name { get; set; }
+
+        public Player(string name)
+        {
+            this.Name = name;
+        }
+
+        public int Seat { get; set; }
 		public List<MatchRecord> MatchHistory { get; set; }
 
 		public List<Player> GetAllPriorOpponents()

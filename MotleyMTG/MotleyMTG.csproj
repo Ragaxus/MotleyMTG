@@ -53,15 +53,28 @@
     <Compile Include="Model\IPairingStrategy.cs" />
     <Compile Include="Model\SeatingPairingStrategy.cs" />
     <Compile Include="Model\SwissPairingStrategy.cs" />
-    <Compile Include="UI\Form1.cs">
+    <Compile Include="UI\frmMaster.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="UI\frmMaster.Designer.cs">
+      <DependentUpon>frmMaster.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\IDraftHandler.cs" />
+    <Compile Include="UI\PlayerEntry.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\PlayerEntry.Designer.cs">
+      <DependentUpon>PlayerEntry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ShowSeatedPlayers.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\ShowSeatedPlayers.Designer.cs">
+      <DependentUpon>ShowSeatedPlayers.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -71,6 +84,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UI\frmMaster.resx">
+      <DependentUpon>frmMaster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\PlayerEntry.resx">
+      <DependentUpon>PlayerEntry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ShowSeatedPlayers.resx">
+      <DependentUpon>ShowSeatedPlayers.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
